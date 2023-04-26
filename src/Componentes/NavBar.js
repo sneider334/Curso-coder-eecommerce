@@ -1,5 +1,5 @@
 import CartWidget from "./CartWidget";
-
+import { NavLink } from "react-router-dom"
 
 const NavBar = ()=>{
     return (
@@ -7,9 +7,9 @@ const NavBar = ()=>{
     <header className="header">
         <h1 className="text-muted header__title"> Garrafas coderhouse</h1>
         <nav className="nav">
-            <a href="#" className="link first_link">Link 1</a>
-            <a href="#" className="link second_link">Link 2</a>
-            <a href="#" className="link third_link">Link 3</a>
+            <NavLink to="/categoria/1" className="link first_link">Categoria 1</NavLink>
+            <a href="/categoria/2" className="link second_link">Categoria 2</a>
+            <a href="carrito" className="link third_link">carrito</a>
             <a href="#" className="link fourth_link">Link 4</a>
         </nav>
     </header>
