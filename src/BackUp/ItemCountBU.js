@@ -1,7 +1,7 @@
 
 import useCounter from './Hooks/useCounter'
 
-const ItemCount =({})=>{
+const ItemCountBU =({})=>{
     
     const {onAdd,sumar,restar,stock,initial}= useCounter()
     
@@ -19,7 +19,7 @@ const ItemCount =({})=>{
         </div>
     )
 }
-export default ItemCount
+export default ItemCountBU
 
 
 

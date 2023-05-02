@@ -18,13 +18,13 @@ const ItemListContainerr = ({greeting}) => {
             })
             .catch((err) =>console.log(err))
             .finally(()=>setLoading(false))
-    },[])
+    },[parametros.id])
 
     console.log (estado)
 
     return (
         <>
-        <h3>{greeting}</h3>
+        <h3 className="greeting">{greeting}</h3>
         {loading? <p>Cargando...</p>:<ItemList losProductos={estado}/>}
         </>
     )}

@@ -1,37 +1,28 @@
 import ItemDetail from "./ItemDetail";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ItemCount from "./ItemCount";
+import ItemCountBU from "../BackUp/ItemCountBU";
 import { mockAsyncDetail } from "./MockAsync";
 
 const ItemDetailContainer=({productos})=>{
 
     const [estado,setEstado] = useState({})
 
-    const parametros = useParams()
+    const {itemId} = useParams()
 
     useEffect(()=>{
-       
-        mockAsyncDetail()
+        mockAsyncDetail(itemId)
         .then((resultado) =>{
-            console.log(resultado)
             setEstado(resultado)
         })
         .catch((err) =>console.log(err))
         .finally(()=>console.log("finished"))
-    },[parametros.id])
-
-    const seleccionar =()=>{
-        return 
-    }
-
-    // const separar = estado.find(element => element == productos.id)
-
+    },[itemId])
 
     return(
         <>
-        <ItemDetail detalles="messiontolibre"/>
-        <ItemCount></ItemCount>
+        <ItemDetail {...productos}/>
+        <ItemCountBU></ItemCountBU>
         </>
     )
     

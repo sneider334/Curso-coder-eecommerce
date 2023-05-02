@@ -1,22 +1,18 @@
 
 
-const ItemDetail = ({detalle})=>{
+const ItemDetail = ({id, name, img, category, description, price, stock})=>{
     return(
         <>
         <div className="tituloDetallesTermo1">
-            <h2>Detalle del termo 2000</h2>
-            <img className="card-img-top imagenDetallesTermo1" src="https://www.brandit.com.ar/wp-content/uploads/2017/08/Termo_Acero_InoxidableManija.png" alt=""></img>
-            <p> Termo de Acero Inoxidable.
-                Capacidad: 1,1 Lt.
-                Manija de Plástico.</p>
-            <h3>Precio: $500</h3>
+            <h2>{name}</h2>
+            <h3>{category}</h3>
+            <img className="card-img-top imagenDetallesTermo1" src={img} alt={name}></img>
+            <p>{description}</p>
+            <h3>Precio: {price}</h3>
+            <h4>Stock disponible: {stock}</h4>
         </div>
         </>
     )
 }
-
-
-
-
 
 export default ItemDetail
