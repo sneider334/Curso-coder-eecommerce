@@ -12,7 +12,7 @@ return (
         <NavBar/>
         <main>
         <Routes>
-            <Route path="/" element={<ItemListContainerr greeting="Bienvenidos a esta pagina"/>}></Route>
+            <Route path="/" element={<ItemListContainerr greeting="Bienvenidos al mundo de los termos"/>}></Route>
             <Route path="category/:id" element={<ItemListContainerr/>}></Route>
             <Route path="item/:id" element={<ItemDetailContainer/>}></Route> 
             {/* <Route path="/cart" element={<Cart/>}></Route> */}

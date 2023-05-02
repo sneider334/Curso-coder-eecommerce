@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
 import Item from './Item';
 
-const ItemList =({products})=>{
+const ItemList =({losProductos})=>{
 
-    console.log (products)
-    const [catalogo, setCatalogo]= useState(Array.from([2,3,4,5,6,7,8,9,10]))
+    console.log (losProductos)
+    // const [catalogo, setCatalogo]= useState(Array.from([2,3,4,5,6,7,8,9,10]))
 
 
     return(
         <div>
-            <Item/>
-            {catalogo.map((item)=>{
-                <Item key={item.id}>Item {item}</Item>
+            {losProductos.map((item)=>{
+               return <Item key={item.id} item = {item}/>
             })}
         </div>
     )

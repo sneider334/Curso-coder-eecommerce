@@ -89,7 +89,7 @@ html, body, #root{
 }
 .card{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
@@ -97,6 +97,9 @@ html, body, #root{
   border-radius: 4px;
   margin-bottom: 1rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  width: 25%;
+  height: 20%;
+  flex-wrap: wrap;
 }
 .imagenTermo1{
   width: 18rem;
@@ -110,10 +113,6 @@ html, body, #root{
 .tituloDetallesTermo1{
   width: 30%;
 }
-.card{
-  width: 400px;
-  height: 800px;
-}
 .card-title{
   text-align: center;
 }
@@ -123,4 +122,9 @@ html, body, #root{
 }
 .tituloTermo1{
   font-size: 26px;
+  text-align: center;
+}
+.but{
+  display: flex;
+  align-content: center;
 }

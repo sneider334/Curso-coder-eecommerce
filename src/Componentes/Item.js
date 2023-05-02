@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
-import useCounter from "../Hooks/useCounter";
+import ItemCount from "./ItemCount";
 import React from "react";
 
-const Item = ({productos}) =>{
-    const {stock}= useCounter();
+const Item = ({item}) =>{
     return(
         <div className="card">
-            <p><h1 className="tituloTermo1">{productos.name}</h1></p>
-            <img className="card-img-top imagenTermo1" src={productos.img} alt={productos.name}></img>
+            <p><h1 className="tituloTermo1">{item.name}</h1></p>
+            <img className="card-img-top imagenTermo1" src={item.img} alt={item.name}></img>
             <div className="card-body">
-            <h5 className="card-title">{productos.description}</h5>
+            <h5 className="card-title"></h5>
             <p class="card-text"></p>
-            <Link to={`/item/${productos.id}`} class="btn btn-primary">Mostrar mas detalles</Link>    
-            <p className="stockTermo1">Stock disponible: {stock}</p> 
+            <Link to={`/item/${item.id}`} class="btn btn-primary but">Mostrar mas detalles</Link>    
+            <p className="stockTermo1">Stock disponible: {item.stock}</p> 
             </div>
         </div>
     )
