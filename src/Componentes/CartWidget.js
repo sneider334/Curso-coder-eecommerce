@@ -1,8 +1,7 @@
-const CartWidget =()=>{
+const CartWidget =(props)=>{
     return(
         <div>
-            <img src="images/carrito.png" alt="carrito" className="img-circle"></img>
-            <h4>2</h4>
+            <h4>{0}<span><img src="images/carrito.png" alt="carrito" className="img-circle"></img> Carrito</span></h4>
         </div>
     )
 }

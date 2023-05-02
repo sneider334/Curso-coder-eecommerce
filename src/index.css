@@ -56,11 +56,10 @@ html, body, #root{
     flex-direction: row;
     justify-content: space-between;
   }
-} 
-.first_link{
-  margin-left: 1rem;
 }
-
+.link{
+  margin: 1rem;
+}
 .main{
   flex: 1;
   padding:1rem;
@@ -80,10 +79,48 @@ html, body, #root{
 .false{
   color: red;
 }
-
-
-
-
-
-
-
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+.imagenTermo1{
+  width: 18rem;
+  height: 250px;
+  
+}
+.imagenDetallesTermo1{
+  height: 350px;
+  width: 80px;
+}
+.tituloDetallesTermo1{
+  width: 30%;
+}
+.card{
+  width: 400px;
+  height: 800px;
+}
+.card-title{
+  text-align: center;
+}
+.stockTermo1{
+  text-align: center;
+  margin-top: 10px;
+}
+.tituloTermo1{
+  font-size: 26px;
+}

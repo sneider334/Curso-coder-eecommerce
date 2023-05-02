@@ -1,31 +1,22 @@
 import { useState, useEffect } from 'react';
+import Item from './Item';
 
-const ItemList =()=>{
-    
-    const [usuarios,setUsuarios] = useState("")
-    
-    const productos = [
-        {id : '1', name : 'Garrafa 1', price:100},
-        {id : '2', name : 'Garrafa 2', price:200},
-        {id : '3', name : 'Garrafa 3', price:300},
-    ]
+const ItemList =({products})=>{
 
-    useEffect(()=>{
-        const pedido = new Promise((res, rej) =>{
-            setTimeout(()=>{
-                res(productos);
-                rej ("error")
-            },2000)
-        })
-        pedido
-        .then((resultado) =>{
-            console.log(resultado)
-            setUsuarios(resultado)
-        })
-        .catch((err) =>console.log(err));
-        pedido.finally(()=>console.log("finished"))
-    },[])
-}
+    console.log (products)
+    const [catalogo, setCatalogo]= useState(Array.from([2,3,4,5,6,7,8,9,10]))
+
+
+    return(
+        <div>
+            <Item/>
+            {catalogo.map((item)=>{
+                <Item key={item.id}>Item {item}</Item>
+            })}
+        </div>
+    )
+    }
+    
 
 export default ItemList
 
