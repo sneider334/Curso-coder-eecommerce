@@ -22,7 +22,7 @@ export const mockAsync=()=>{
             } else{
                 rej ("error")
             }
-    },500)
+    },2000)
     }) 
 }
 
@@ -31,6 +31,6 @@ export const mockAsyncDetail =(productId)=>{
         setTimeout(()=>{
             res(productos.find(prod => prod.id === productId));
             rej ("error")
-        },500)
+        },2000)
     })
 }

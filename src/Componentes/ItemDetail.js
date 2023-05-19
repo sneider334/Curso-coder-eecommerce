@@ -1,6 +1,14 @@
-
+import { useContext } from "react";
+import { contexto } from "../pages/CustomProvider";
 
 const ItemDetail = ({id, name, img, category, description, price, stock})=>{
+
+    const { guardarEnCarrito } = useContext(contexto);
+
+    const handleClick =()=>{
+        guardarEnCarrito();
+    }
+
     return(
         <>
         <div className="tituloDetallesTermo1">
@@ -10,6 +18,7 @@ const ItemDetail = ({id, name, img, category, description, price, stock})=>{
             <p>{description}</p>
             <h3>Precio: {price}</h3>
             <h4>Stock disponible: {stock}</h4>
+            {/* <button onClick={handleClick}></button> */}
         </div>
         </>
     )
