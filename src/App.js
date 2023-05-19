@@ -5,11 +5,10 @@ import { BrowserRouter , Route, Routes } from "react-router-dom";
 import ItemDetailContainer from "./Componentes/ItemDetailContainer"; 
 import NotFound from "./Componentes/NotFound";
 import Footer from "./Componentes/Footer";
-import CustomProvider from "./pages/CustomProvider";
+import CustomProvider from "./pages/Context.js/CustomProvider";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import 'react-loading-skeleton/dist/skeleton.css';
 
 
 function App() {

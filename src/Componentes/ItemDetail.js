@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { contexto } from "../pages/CustomProvider";
+import { contexto } from "../pages/Context.js/CustomProvider";
 
 const ItemDetail = ({id, name, img, category, description, price, stock})=>{
 

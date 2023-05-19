@@ -4,9 +4,6 @@ import useCounter from './useCounter'
 const ItemCountBU =({})=>{
     
     const {onAdd,sumar,restar,stock,initial}= useCounter()
-    
-    console.log(onAdd)
-
 
     return(
         <div>

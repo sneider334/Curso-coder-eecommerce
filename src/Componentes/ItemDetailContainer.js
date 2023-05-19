@@ -4,13 +4,18 @@ import { useParams } from "react-router-dom";
 import ItemCountBU from "./ItemCountBU";
 import { mockAsyncDetail } from "./MockAsync";
 import { toast } from "react-toastify";
-import Skeleton from "react-loading-skeleton";
+import { Link } from "react-router-dom";
 
 
 const ItemDetailContainer=({productos})=>{
 
     const [detalle,setDetalle] = useState({})
     const [loading, setLoading] = useState(true)
+    const [cantidadAgregada, setCantidadAgregada] = useState(0)
+
+    const handleOnAdd = (cantidad)=>{
+        setCantidadAgregada(cantidad)
+    }
 
     const {itemId} = useParams()
 
@@ -29,27 +34,17 @@ const ItemDetailContainer=({productos})=>{
         .finally(()=>console.log("finished"))
 
     },[itemId])
-    
-      if (loading) {
-        return (
-          <div className="detalle">
-            <div>
-              <Skeleton height={400} />
-            </div>
-            <div>
-              <Skeleton count={5} />
-              <br />
-              <br />
-              <Skeleton width={100} />
-            </div>
-          </div>
-        )
-      }
 
     return(
         <>
         <ItemDetail {...detalle}/>
-        <ItemCountBU></ItemCountBU>
+        {
+          cantidadAgregada > 0 ? (
+            <Link to='/cart' className="btn sumar btn-outline-danger">Terminar Compra</Link>
+           ) : (
+            <ItemCountBU onAdd={handleOnAdd}></ItemCountBU>
+           )
+        }
         </>
     )
     
