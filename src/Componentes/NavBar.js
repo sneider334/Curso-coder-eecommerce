@@ -17,8 +17,8 @@ const NavBar = ()=>{
         <nav className="nav">
             <NavLink to={`/category/acero_inoxidable`} className="link first_link">Termos Acero</NavLink>
             <NavLink to={`/category/plastico` }className="link second_link">Termos Plástico</NavLink>
-            <NavLink to="/cart" className="link third_link">Carrito</NavLink>
-            <NavLink to="#" className="link fourth_link"><CartWidget/></NavLink>
+            {/* <NavLink to="/cart" className="link third_link">Carrito</NavLink> */}
+            <NavLink to="/cart" className="link fourth_link"><CartWidget/></NavLink>
         </nav>
     </header>
     

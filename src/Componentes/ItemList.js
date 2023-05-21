@@ -1,9 +1,6 @@
-import { useState, useEffect } from 'react';
 import Item from './Item';
 
 const ItemList =({losProductos})=>{
-
-    console.log (losProductos)
     
     return(
         <div>

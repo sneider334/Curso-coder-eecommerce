@@ -1,25 +1,47 @@
 import { useContext } from "react";
-import { contexto } from "../pages/Context.js/CustomProvider";
+// import { contexto } from "../pages/Context.js/CustomProvider";
+import { CartContext } from "../pages/Context.js/CartContext";
+import { Link } from "react-router-dom";
+import ItemCountBU from "./ItemCountBU";
+import { useState } from "react";
 
-const ItemDetail = ({id, name, img, category, description, price, stock})=>{
 
-    const { guardarEnCarrito } = useContext(contexto);
+const ItemDetail = ({detail})=>{
 
-    const handleClick =()=>{
-        guardarEnCarrito();
+    const [cantidadAgregada, setCantidadAgregada] = useState(0)
+    const { addToCart,clearCart,isInCart,removeFromCart } = useContext(CartContext);
+
+    console.log(addToCart)
+    const handleOnAdd = (contador)=>{
+        setCantidadAgregada(contador);
+        // addToCart(detail.item, contador)
+        console.log(addToCart)
     }
+
+    // const { guardarEnCarrito } = useContext(contexto);
+    
+
+    // const handleClick =()=>{
+    //     guardarEnCarrito();
+    // }
 
     return(
         <>
         <div className="tituloDetallesTermo1">
-            <h2>{name}</h2>
-            <h3>{category}</h3>
-            <img className="card-img-top imagenDetallesTermo1" src={img} alt={name}></img>
-            <p>{description}</p>
-            <h3>Precio: {price}</h3>
-            <h4>Stock disponible: {stock}</h4>
+            <h2>{detail.name}</h2>
+            <img className="card-img-top imagenDetallesTermo1" src={detail.img} alt={detail.name}></img>
+            <p>{detail.description}</p>
+            <h3>Precio: {detail.price}</h3>
+            <h4>Stock disponible: {detail.stock}</h4>
             {/* <button onClick={handleClick}></button> */}
         </div>
+        {
+          cantidadAgregada > 0 ? (
+            <Link to='/cart' className="btn sumar btn-outline-danger">Terminar Compra</Link>
+           ) : ( 
+            <ItemCountBU onAdd={handleOnAdd}></ItemCountBU>
+            )
+        } 
         </>
     )
 }

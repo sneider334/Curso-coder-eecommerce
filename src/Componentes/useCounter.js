@@ -27,7 +27,7 @@ const useCounter =()=>{
     }
 
 const loQueRetorno ={
-    onAdd : contador,
+    contador : contador,
     sumar: handleSumar,
     restar: handleRestar,
     stock: stock,

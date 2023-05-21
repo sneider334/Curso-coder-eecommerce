@@ -1,9 +1,9 @@
 
 import useCounter from './useCounter'
 
-const ItemCountBU =({})=>{
+const ItemCountBU =({onAdd})=>{
     
-    const {onAdd,sumar,restar,stock,initial}= useCounter()
+    const {contador,sumar,restar,stock,initial}= useCounter()
 
     return(
         <div>
@@ -11,7 +11,7 @@ const ItemCountBU =({})=>{
             <p> Contador :{onAdd}</p>
             <button onClick={sumar} className='btn sumar btn-outline-danger'>+</button>
             <button onClick={restar} className='btn restar btn-outline-danger'>−</button>
-            <button>Agregar al Carrito</button>
+            <button onClick={()=>onAdd(contador)} className="btn sumar btn-outline-danger">Agregar al Carrito</button>
             <p>El stock disponible es: {stock}</p>
         </div>
     )

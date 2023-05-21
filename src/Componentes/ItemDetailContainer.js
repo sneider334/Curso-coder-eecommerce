@@ -1,50 +1,61 @@
 import ItemDetail from "./ItemDetail";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ItemCountBU from "./ItemCountBU";
-import { mockAsyncDetail } from "./MockAsync";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { collection, getDocs, query } from "firebase/firestore";
+import { db } from "../firebase";
 
 
-const ItemDetailContainer=({productos})=>{
+const ItemDetailContainer=()=>{
 
     const [detalle,setDetalle] = useState({})
     const [loading, setLoading] = useState(true)
-    const [cantidadAgregada, setCantidadAgregada] = useState(0)
-
-    const handleOnAdd = (cantidad)=>{
-        setCantidadAgregada(cantidad)
-    }
 
     const {itemId} = useParams()
 
-    useEffect(()=>{
+    const GetProductos = async (itemId) => {
+        try {
+            const productosCollection = query(
+                      collection(db, "productos"),
+                  )
         
+            const traerQuery = await getDocs(productosCollection);
+
+            const arrayDocumentos = traerQuery.docs.map((doc) => {
+                const producto = {
+                    id: doc.id,
+                    ...doc.data(),
+                };
+                return producto;
+            });
+
+            return arrayDocumentos;
+        } catch (err) {
+            console.log("Hubo un error pidiendo los productos", err);
+            throw err;
+        }
+    };
+
+    useEffect(() => {
+
         toast.info("Cargando el detail del producto, espere por favor...")
 
-        mockAsyncDetail(itemId)
-        .then((resultado) =>{
-            toast.dismiss()
-            toast.success("Cargado!",{autoClose: 800})
-            setDetalle(resultado)
-            setLoading(false)
-        })
-        .catch((err) =>console.log(err))
-        .finally(()=>console.log("finished"))
-
-    },[itemId])
+        GetProductos()
+            .then((resultado) => {
+                toast.dismiss()
+                toast.success("Cargado!",{autoClose: 500})
+                let unitario = resultado.find((x)=>x.id == itemId)
+                setDetalle(unitario);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, [itemId]);
 
     return(
         <>
-        <ItemDetail {...detalle}/>
-        {
-          cantidadAgregada > 0 ? (
-            <Link to='/cart' className="btn sumar btn-outline-danger">Terminar Compra</Link>
-           ) : (
-            <ItemCountBU onAdd={handleOnAdd}></ItemCountBU>
-           )
-        }
+        <ItemDetail detail={detalle}/>
         </>
     )
     
