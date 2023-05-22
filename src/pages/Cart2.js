@@ -43,24 +43,36 @@
 // export default Cart2
 
 
-import { useState } from "react"
-// import CartList from "./Hijo"
+import { useContext, useState } from "react"
 import { serverTimestamp } from "firebase/firestore"
 import { crearVenta } from "../util"
+import { CartContext } from "./Context.js/CartContext"
+import { Link } from "react-router-dom"
  
 const CartContainer = () => {
 
-  const [estadoLocal, setEstadoLocal] = useState(true)
-  const [otroEstado, setOtroEstado] = useState("Texto Inicial")
-  const [compra, setCompra] = useState(true)
+  const { cart, clearCart, isInCart, addToCart, removeFromCart, getTotal, getCantidad } = useContext(CartContext)
 
-  const handleClick = () => {
-    setEstadoLocal(!estadoLocal)
+  if (getCantidad == 0) {
+    return(
+      <div>
+        <h1>No hay elementos en el carrito</h1>
+        <Link to='/' className="option">Productos</Link>
+      </div>
+    )
   }
 
-  const miFuncion = (valorDelInput) => {
-    setOtroEstado(valorDelInput)
-  }
+  // const [estadoLocal, setEstadoLocal] = useState(true)
+  // const [otroEstado, setOtroEstado] = useState("Texto Inicial")
+  // const [compra, setCompra] = useState(true)
+
+  // const handleClick = () => {
+  //   setEstadoLocal(!estadoLocal)
+  // }
+
+  // const miFuncion = (valorDelInput) => {
+  //   setOtroEstado(valorDelInput)
+  // }
 
   const handleClickCompra = () => {
 
@@ -92,18 +104,27 @@ const CartContainer = () => {
 
   return (
     <>
-      <p>Estado local : {estadoLocal ? "TRUE" : "FALSE"}</p>
-      <p className="">{ compra ? "El carrito de compras se encuentra vacío" : "False" }</p>
-      <button onClick={handleClick}>cambiar estado local</button>
-      <p>{otroEstado}</p>
-      {/* <CartList
-        estadoDelPadre={estadoLocal}
-        handleClick={handleClick}
-        miFuncion={miFuncion}
-      /> */}
-
-      <button onClick={handleClickCompra}>Finalizar compra</button>
+    <p>Hola</p>
+    {cart.map((x)=>{
+               return <CartContext key={x.id} {...x}/>
+            })}
+    <h3>Total: {getTotal}</h3>
+    <button onClick={()=>clearCart()} className="btn btn-secondary">Limpiar carrito</button>
     </>
+    // <>
+    //   {/* <p>Estado local : {estadoLocal ? "TRUE" : "FALSE"}</p> */}
+    //   {/* {cart.map((x)=>)} */}
+    //   {/* <p className="">{ compra ? "El carrito de compras se encuentra vacío" : "False" }</p> */}
+    //   {/* <button onClick={handleClick}>cambiar estado local</button> */}
+    //   {/* <p>{otroEstado}</p> */}
+    //   {/* <CartList
+    //     estadoDelPadre={estadoLocal}
+    //     handleClick={handleClick}
+    //     miFuncion={miFuncion}
+    //   /> */}
+
+    //   <button onClick={handleClickCompra}>Finalizar compra</button>
+    // </>
   )
 }
 

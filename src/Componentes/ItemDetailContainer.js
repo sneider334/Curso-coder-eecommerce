@@ -15,9 +15,7 @@ const ItemDetailContainer=()=>{
 
     const GetProductos = async (itemId) => {
         try {
-            const productosCollection = query(
-                      collection(db, "productos"),
-                  )
+            const productosCollection = collection(db, "productos")
         
             const traerQuery = await getDocs(productosCollection);
 

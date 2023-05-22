@@ -1,5 +1,4 @@
 import { useContext } from "react";
-// import { contexto } from "../pages/Context.js/CustomProvider";
 import { CartContext } from "../pages/Context.js/CartContext";
 import { Link } from "react-router-dom";
 import ItemCountBU from "./ItemCountBU";
@@ -14,7 +13,11 @@ const ItemDetail = ({detail})=>{
     console.log(addToCart)
     const handleOnAdd = (contador)=>{
         setCantidadAgregada(contador);
-        // addToCart(detail.item, contador)
+        addToCart(detail, contador)
+        // const item = {
+        //     id, name, price
+        // }
+        // addToCart(item, cantidad)
         console.log(addToCart)
     }
 
