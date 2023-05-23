@@ -60,10 +60,11 @@ const CartContainer = () => {
     return(
       <div>
         <h1>No hay elementos en el carrito</h1>
-        <Link to='/' className="option">Productos</Link>
+        <Link to='/' className="btn btn-secondary">Productos</Link>
       </div>
     )
-  } else {
+  } 
+
  return (
     <>
     <p>Hola</p>
@@ -74,7 +75,7 @@ const CartContainer = () => {
     <button onClick={()=>clearCart()} className="btn btn-secondary">Limpiar carrito</button>
     </>
   )
-}
+
   const handleClickCompra = () => {
 
     //esto vino del contexto en teoria
