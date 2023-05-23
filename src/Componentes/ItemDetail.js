@@ -13,7 +13,7 @@ const ItemDetail = ({detail})=>{
     console.log(addToCart)
     const handleOnAdd = (contador)=>{
         setCantidadAgregada(contador);
-        addToCart(detail, contador)
+        addToCart(detail.id, contador)
         // const item = {
         //     id, name, price
         // }
@@ -40,7 +40,7 @@ const ItemDetail = ({detail})=>{
         </div>
         {
           cantidadAgregada > 0 ? (
-            <Link to='/cart' className="btn sumar btn-outline-danger">Terminar Compra</Link>
+            <Link to='/cart' className="btn sumar btn-outline-danger">Terminar Compra (Ir al carrito)</Link>
            ) : ( 
             <ItemCountBU onAdd={handleOnAdd}></ItemCountBU>
             )

@@ -1,12 +1,12 @@
 import { createContext, useState } from "react";
 
-export const CartContext = createContext({});
+export const CartContext = createContext();
 
 export const {Provider} = CartContext;
+ 
+const CustomProvider = ({children}) => {
 
-const CustomProvider = ({defaultValue = [], children}) => {
-
-  const [cart,setCart] = useState(defaultValue);  
+  const [cart,setCart] = useState([]);  
 
   const clearCart =()=>{
     setCart([])
