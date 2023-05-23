@@ -30,8 +30,8 @@ const CustomProvider = ({children}) => {
             [
                 ...cart,
                 {
-                    item: item,
-                    cantidad: cantidad
+                    ...item,
+                    cantidad
                 }
     
             ]

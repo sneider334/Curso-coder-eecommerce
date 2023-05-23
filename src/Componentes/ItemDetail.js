@@ -13,7 +13,7 @@ const ItemDetail = ({detail})=>{
     console.log(addToCart)
     const handleOnAdd = (contador)=>{
         setCantidadAgregada(contador);
-        addToCart(detail.id, contador)
+        addToCart(detail, contador)
         // const item = {
         //     id, name, price
         // }
