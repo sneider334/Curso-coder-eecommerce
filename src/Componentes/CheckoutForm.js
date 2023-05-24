@@ -15,22 +15,26 @@ const Formulario =({onConfirm})=>{
     }
 
     return(
-        <div>
-            <form onSubmit={handleConfirmation}>
-                <label>
-                    Nombre
-                    <input type="text" value={nombre} onChange={({target})=>setNombre(target.value)}></input>
+    <div style={{margin:10}}>
+        <form onSubmit={handleConfirmation}>
+            <div className="mb-3">
+                <label for="exampleInputEmail1" className="form-label">Nombre</label>
+                <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={nombre} onChange={({target})=>setNombre(target.value)}/>
+            </div>
+            <div className="mb-3">
+                <label for="exampleInputPassword1" className="form-label">Teléfono</label>
+                <input type="text" value={movil} onChange={({target})=>setMovil(target.value)} className="form-control" id="exampleInputPassword1"/>
+            </div>
+            <div className="mb-3 form-check">
+                <label for="exampleInputPassword1" className="form-label">
+                    Email
+                    <input type="email" value={email} onChange={({target})=>setEmail(target.value)} className="form-control" id="exampleInputPassword1"></input>
                 </label>
-                <label>
-                    Teléfono
-                    <input type="text" value={movil} onChange={({target})=>setMovil(target.value)}></input>
-                </label>
-                <label>
-                    Nombre
-                    <input type="email" value={email} onChange={({target})=>setEmail(target.value)}></input>
-                </label>
-            </form>
-        </div>
+            <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+            </div>
+                <button className="btn btn-dark" onClick={handleConfirmation}>Enviar</button>
+        </form>
+    </div>
     )
 }
 

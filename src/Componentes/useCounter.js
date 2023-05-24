@@ -33,14 +33,7 @@ const loQueRetorno ={
     stock: stock,
     initial: initial
 }
-//La variable no es necesaria, para la redundancia
-
     return loQueRetorno
 }
 
 export default useCounter
-
-
-
-
-

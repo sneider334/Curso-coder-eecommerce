@@ -9,7 +9,7 @@ const NotFound = ()=>{
         },3000)
     })
     return (
-        <div>Not Found. Redirecting...</div>
+        <div className="not-found"><b>Not Found. Redirecting...</b></div>
     )
 }
 

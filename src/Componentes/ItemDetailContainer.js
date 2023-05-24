@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "./firebase";
 
 
 const ItemDetailContainer=()=>{
@@ -52,12 +52,11 @@ const ItemDetailContainer=()=>{
     }, [itemId]);
 
     return(
-        <>
-        <ItemDetail detail={detalle}/>
-        </>
+        <div className="titulosDetallesTermo1">
+            <ItemDetail detail={detalle}/>
+        </div>
     )
     
 }
-
 
 export default ItemDetailContainer

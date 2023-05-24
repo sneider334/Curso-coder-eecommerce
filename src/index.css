@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Josefin Sans', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -47,9 +45,15 @@ html, body, #root{
   flex-direction: column;
   padding: 0 16px;
   height: 60px;
-  background: #ed12a2;
+  background: #b4c0ee;
   color: #fff;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+.header-container{
+  position: fixed;
+  width: 100vw;
+  z-index: 100;
+  height: 60px;
 }
 @media (min-width: 600px) {
   .header{
@@ -57,9 +61,19 @@ html, body, #root{
     justify-content: space-between;
   }
 }
+.greeting-container{
+  display: flex;
+  justify-content: center;
+  margin: 80px 10px 10px 10px;
+  width: 500px;
+  height: 40px;
+  border: solid 0.5px #b4c0ee;
+  border-radius: 2%;
+}
 .link{
   margin: 1rem;
-  padding-top: 14px;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 .main{
   flex: 1;
@@ -67,18 +81,23 @@ html, body, #root{
 }
 .footer{
   height: 40px;
-  background: #ed12a2;
+  background: #b4c0ee;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 0.8rem;
 }
-.true{
-  color: green;
+.footer__text{
+  margin-top: 12px;
+  color: #000;
+  font-size: 20px;
 }
-.false{
-  color: red;
+.categorias{
+  margin-top: 80px;
+}
+.venta{
+  margin-top: 80px;
 }
 .cards{
   display: flex;
@@ -106,14 +125,15 @@ html, body, #root{
 .imagenTermo1{
   width: 18rem;
   height: 250px;
-  
 }
 .imagenDetallesTermo1{
   height: 350px;
   width: 380px;
+  border: solid 1px #000;
 }
 .tituloDetallesTermo1{
-  width: 30%;
+  margin: 65px 0 10px 20px;
+  max-width: 450px;
 }
 .card-title{
   text-align: center;
@@ -126,9 +146,17 @@ html, body, #root{
   font-size: 26px;
   text-align: center;
 }
-.but{
+.not-found{
+  font-size: 20px;
+  margin: 20px;
+}
+.but1{
   display: flex;
   align-items: center;
+}
+.but{
+  margin: auto;
+  text-align: center;
 }
 .header__title{
   text-decoration: none;
@@ -142,4 +170,28 @@ html, body, #root{
 }
 .greeting{
   text-align: center;
+}
+.contenido{
+  margin-left: 2%;
+}
+.img-circlee{
+  font-size: 20px;
+}
+.cantidad-vacio{
+  margin: 20px;
+  margin-top: 80px;
+}
+.checkout{
+  margin-top: 70px;
+}
+.orderId{
+  font-size:24px;
+  margin:10px;
+  margin-top:75px;
+  text-align:center
+}
+.orderIdProgreso{
+  font-size:24px;
+  margin:10px;
+  margin-top:75px;
 }

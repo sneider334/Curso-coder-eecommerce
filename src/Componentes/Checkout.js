@@ -1,8 +1,8 @@
 import Formulario from "./CheckoutForm";
-import { db } from "../firebase";
+import { db } from "./firebase";
 import { useContext, useState } from "react";
-import { CartContext } from "../pages/Context.js/CartContext";
-import { Timestamp, addDoc, collection, documentId, getDocs, orderBy, query, where, writeBatch } from "firebase/firestore";
+import { CartContext } from "./CartContext";
+import { Timestamp, addDoc, collection, documentId, getDocs, query, where, writeBatch } from "firebase/firestore";
 
 
 
@@ -21,7 +21,7 @@ const Checkout =()=>{
                     nombre, movil, email
                 },
                 items: cart,
-                total: getTotal,
+                total: getTotal(),
                 date: Timestamp.fromDate(new Date())
             }
             const batch = writeBatch(db)
@@ -31,18 +31,13 @@ const Checkout =()=>{
             const agregarProductos = await getDocs(query(productosReferencia,where(documentId(),"in",documentos)))
             const {docs} = agregarProductos
 
-            // docs.forEach((doc) => {
-            //     const dataDocumento = doc.data()
-
-            //     const productosCarrito = cart.find((x)=> x.id == doc.id)
-            //     const productosCantidad = productosCarrito?.cantidad
-            // })
-
             await batch.commit();
             const ordenReferencia = collection(db, 'ventas')
             const agregarOrden = await addDoc(ordenReferencia,objeto)
 
-            setOrderId(agregarOrden.id)
+            console.log(agregarOrden)
+
+            setIdOrden(agregarOrden.id)
             clearCart()
        
         }  catch (err){
@@ -52,14 +47,14 @@ const Checkout =()=>{
         }
     }
     if (loading) {
-        return(<p>La orden está en progreso...</p>)
+        return(<p className="orderIdProgreso">La orden está en progreso...</p>)
     }
-    if (orderId) {
-        return(<h1>El id de su orden es:{orderId}</h1>)
+    if (idOrden) {
+        return(<h1 className="orderId">El id de su orden es: {idOrden}</h1>)
     }
     return (
-        <div>
-            <h1>Checkout</h1>
+        <div className="checkout">
+            <h1 style={{margin:5}}>Checkout</h1>
             <Formulario onConfirm={crearOrden}/>
         </div>
     )
