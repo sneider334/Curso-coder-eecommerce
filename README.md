@@ -18,12 +18,12 @@ Para la instalación de este proyecto es necesario clonar el repositorio desde
 [GitHub:](https://github.com/sneider334/Curso-coder-eecommerce.git)
 Luego, instalarse las tecnologías usadas, citadas arriba, y listo, ya se puede utilizar la aplicación.
 Para instalar el create-react-app: 
-`npm i -g create-react-app`
-`npx create-react-app carpeta`
-`cd carpeta`
-`npm start`
+`npm i -g create-react-app`,
+`npx create-react-app carpeta`,
+`cd carpeta`,
+`npm start`,
 Las últimas dos líneas son para abrir el programa.
-Para la instalación de las demás herramientas se pueden buscar en la [documentación oficial](https://react.dev/) de React.
+Para la instalación de las demás herramientas se pueden buscar en la [Documentación Oficial](https://react.dev/) de React.
 
 # **Demo:**
 [Link](https://curso-coder-eecommerce.vercel.app/) 
