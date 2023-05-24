@@ -27,3 +27,6 @@ Para la instalación de las demás herramientas se pueden buscar en Internet.
 
 # **Demo:**
 [link]() 
+
+# Carpeta BackUp
+Esta carpeta contiene archivos que no se usan en el proyecto aún y que se fueron creando a lo largo de la página, considero que son archivos necesarios para un futuro y es por esto que son conservados.
