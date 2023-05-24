@@ -35,8 +35,6 @@ const Checkout =()=>{
             const ordenReferencia = collection(db, 'ventas')
             const agregarOrden = await addDoc(ordenReferencia,objeto)
 
-            console.log(agregarOrden)
-
             setIdOrden(agregarOrden.id)
             clearCart()
        

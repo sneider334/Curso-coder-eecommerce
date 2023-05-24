@@ -51,7 +51,6 @@ const CustomProvider = ({children}) => {
   const getTotal=()=>{
     let total = 0
     cart.forEach((element)=> {
-        console.log(element.id)
         total = total + (element.cantidad * element.price)
     })
     return total

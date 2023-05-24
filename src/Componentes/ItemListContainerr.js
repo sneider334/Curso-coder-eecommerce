@@ -21,7 +21,6 @@ const ItemListContainer = ({ greeting }) => {
                 : collection(db, "productos");
 
             const traerQuery = await getDocs(productosCollection);
-            console.log("Todo salió joya");
 
             const arrayDocumentos = traerQuery.docs.map((doc) => {
                 const producto = {

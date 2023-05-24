@@ -7,8 +7,6 @@ const CartContainer = () => {
 
   const { cart, clearCart, getTotal, getCantidad } = useContext(CartContext)
 
-  console.log(cart)
-
   if (getCantidad() === 0) {
     return(
       <div className="cantidad-vacio">

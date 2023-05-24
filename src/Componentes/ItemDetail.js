@@ -8,9 +8,8 @@ import { useState } from "react";
 const ItemDetail = ({detail})=>{
 
     const [cantidadAgregada, setCantidadAgregada] = useState(0)
-    const { addToCart,clearCart,isInCart,removeFromCart } = useContext(CartContext);
+    const { addToCart } = useContext(CartContext);
 
-    console.log(addToCart)
     const handleOnAdd = (contador)=>{
         setCantidadAgregada(contador);
         addToCart(detail, contador)
